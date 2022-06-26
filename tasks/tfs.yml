@@ -19,7 +19,7 @@
 
 - name: Uninstall systemd services for TFS
   service:
-    name: {{item}}
+    name: "{{item}}"
     state: stopped
     enabled: false
   with_items:
