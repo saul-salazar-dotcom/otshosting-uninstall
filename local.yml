@@ -24,11 +24,6 @@
         - default
         - systemd
 
-    - include: tasks/general.yml
-      tags:
-        - default
-        - general
-
     - include: tasks/mysql.yml
       tags:
         - default
@@ -60,6 +55,11 @@
 
     - include: tasks/wine.yml
       tags: wine
+
+    - include: tasks/general.yml
+      tags:
+        - default
+        - general
 
     - name: reload systemd
       command: /bin/systemctl daemon-reload
