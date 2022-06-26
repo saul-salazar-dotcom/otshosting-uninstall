@@ -1,9 +1,14 @@
 ---
 - name: Stop php-fpm Service
+  ignore_errors: yes
   service:
-    name: php-fpm
+    name: "{{item}}"
     state: stopped
     enabled: false
+  with_items:
+    - php-fpm
+    - php8.1-fpm
+    - php7.4-fpm
 
 - name: Delete /etc/systemd/system/php-fpm.service.d
   file:
