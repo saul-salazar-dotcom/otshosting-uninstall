@@ -1,0 +1,5 @@
+---
+- name: Delete /etc/systemd/journald.conf.d
+  file:
+    path: /etc/systemd/journald.conf.d
+    state: absent

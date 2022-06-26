@@ -1,0 +1,28 @@
+---
+- name: Stop php-fpm Service
+  service:
+    name: php-fpm
+    state: stopped
+    enabled: false
+
+- name: Delete /etc/systemd/system/php-fpm.service.d
+  file:
+    path: /etc/systemd/system/php-fpm.service.d
+    state: absent
+
+- name: Uninstall php-fpm
+  apt:
+    state: absent
+    pkg:
+      - php-fpm
+      - php-apcu
+      - php-mysqlnd
+      - php-curl
+      - php-xml
+      - php-mbstring
+      - composer
+
+- name: Delete php folder
+  file:
+    path: /etc/php/
+    state: absent

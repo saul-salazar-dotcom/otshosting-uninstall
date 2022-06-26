@@ -1,0 +1,16 @@
+---
+- name: Stop nginx Service
+  service:
+    name: nginx
+    state: stopped
+    enabled: false
+
+- name: Uninstall nginx
+  apt:
+    pkg: nginx
+    state: absent
+
+- name: Delete /etc/nginx/default.d
+  file:
+    dest: /etc/nginx/
+    state: absent

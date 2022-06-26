@@ -1,0 +1,14 @@
+---
+- name: Stop Mysql Service
+  service:
+    name: mysql
+    state: stopped
+    enabled: false
+
+- name: Uninstall MySQL Server and backup packages
+  apt:
+    state: absent
+    pkg:
+      - mariadb-server
+      - python3-mysqldb
+      - automysqlbackup

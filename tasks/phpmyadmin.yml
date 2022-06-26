@@ -1,0 +1,7 @@
+---
+- name: Uninstall phpmyadmin
+  apt:
+    pkg:
+      - debconf-utils
+      - phpmyadmin
+    state: absent

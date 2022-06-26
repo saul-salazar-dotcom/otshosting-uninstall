@@ -1,0 +1,5 @@
+---
+- name: Uninstall wine-development
+  apt:
+    pkg: wine-development
+    state: absent

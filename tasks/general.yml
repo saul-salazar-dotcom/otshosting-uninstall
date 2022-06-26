@@ -1,0 +1,18 @@
+---
+- name: Uninstall admin essentials
+  apt:
+    state: absent
+    pkg:
+      - python3-certbot-nginx
+      - gdb
+
+- name: Delete system user
+  user:
+    name: otsmanager
+    state: absent
+    remove: true
+
+- name: Delete welcome message
+  file:
+    path: /etc/update-motd.d/61-otshosting-motd
+    state: absent
