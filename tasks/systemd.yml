@@ -3,3 +3,4 @@
   file:
     path: /etc/systemd/journald.conf.d
     state: absent
+  notify: restart systemd-journald
